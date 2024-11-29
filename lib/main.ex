@@ -13,7 +13,7 @@ defmodule Server do
     # ensures that we don't run into 'Address already in use' errors
     {:ok, socket} = :gen_tcp.listen(4221, [:binary, packet: :line, active: false, reuseaddr: true])
     {:ok, client} = :gen_tcp.accept(socket)
-    :gen_tcp.send(client, "HTTP/1.1 200 OK \r\n\r\n")
+    :gen_tcp.send(client, "HTTP/1.1 200 OK\r\n\r\n")
     :gen_tcp.close(client)
   end
 end
